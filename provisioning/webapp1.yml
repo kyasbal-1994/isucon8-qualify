@@ -5,6 +5,7 @@
     - install_h2o
     - install_mariadb
     - install_go
+    - install_nodejs
     - deploy_webapp
     - prepare_webapp
     - initialize_db
