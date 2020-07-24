@@ -36,18 +36,16 @@
     state: link
     src: /etc/h2o/default-h2o.conf
     dest: /etc/h2o/h2o.conf
-
-- name: Put torb.go.service
-  become: yes
-  become_user: root
-  copy:
-    src: torb.go.service
-    dest: /etc/systemd/system/torb.go.service
-
-- name: Install for torb.go
-  become: yes
-  become_user: isucon
-  args:
-    chdir: /home/isucon/torb/webapp/go
-  shell: |
-    bash -lc "make clean && make deps && make"
+- name: Put torb.nodejs.service	
+  become: yes	
+  become_user: root	
+  copy:	
+    src: torb.nodejs.service	
+    dest: /etc/systemd/system/torb.nodejs.service
+- name: Install for torb.nodejs	
+  become: yes	
+  become_user: isucon	
+  args:	
+    chdir: /home/isucon/torb/webapp/nodejs	
+  shell: |	
+    bash -lc "/home/isucon/local/node/bin/npm install"
