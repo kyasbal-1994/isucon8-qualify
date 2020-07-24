@@ -7,4 +7,5 @@
     - install_go
     - deploy_webapp
     - prepare_webapp
-    - initialize_d
+    - initialize_db
+    - start_perl_webapp
