@@ -49,3 +49,16 @@
     chdir: /home/isucon/torb/webapp/nodejs	
   shell: |	
     bash -lc "/home/isucon/local/node/bin/npm install"
+- name: Put torb.go.service
+  become: yes
+  become_user: root
+  copy:
+    src: torb.go.service
+    dest: /etc/systemd/system/torb.go.service
+- name: Install for torb.go
+  become: yes
+  become_user: isucon
+  args:
+    chdir: /home/isucon/torb/webapp/go
+  shell: |
+    bash -lc "make clean && make deps && make"
